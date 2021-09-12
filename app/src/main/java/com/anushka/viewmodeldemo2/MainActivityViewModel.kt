@@ -1,5 +1,6 @@
 package com.anushka.viewmodeldemo2
 
+import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 
@@ -12,7 +13,14 @@ class MainActivityViewModel(startingTotal: Int) : ViewModel() {
      *
      * MutableLiveData is a subclass of LiveData allowing any data changes / updates
      */
-    var total = MutableLiveData<Int>()
+    private var total = MutableLiveData<Int>()
+
+    /**
+     * For good coding practice we will encapsulate 'total'.
+     * We declare a val of LiveData type (read-only) to be accessible through a 'get'
+     */
+    val totalData: LiveData<Int>
+        get() = total
 
     init {
         total.value = startingTotal

@@ -21,7 +21,7 @@ class MainActivity : AppCompatActivity() {
          *
          * 'it' is the 'total' value
          */
-        viewModel.total.observe(this, {
+        viewModel.totalData.observe(this, {
             binding.resultTextView.text = it.toString()
         })
 
